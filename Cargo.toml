@@ -1,0 +1,28 @@
+[package]
+name = "custom-substream"
+version = "0.1.0"
+description = "Custom Substream"
+edition = "2021"
+repository = "https://github.com/labormedia/custom-substream.git"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+ethabi = "17.0"
+hex-literal = "0.3.4"
+prost = "^0.11.0"
+substreams = "~0.0.20"
+substreams-ethereum = "~0.2.0"
+
+[target.wasm32-unknown-unknown.dependencies]
+getrandom = { version = "0.2", features = ["custom"] }
+
+[build-dependencies]
+anyhow = "1"
+substreams-ethereum = "~0.2.0"
+
+[profile.release]
+lto = true
+opt-level = 's'
+strip = "debuginfo"
