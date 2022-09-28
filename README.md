@@ -7,7 +7,7 @@ You can follow the tutorial at [link]
 - Rust
 - Substreams (https://github.com/streamingfast/substreams)
 
-## Run it :
+## Build it :
 ```
 git clone https://github.com/labormedia/custom-substream.git
 cd custom-substream
@@ -15,4 +15,9 @@ substreams protogen ./substreams.yaml --exclude-paths="sf/ethereum,sf/substreams
 cargo build --target wasm32-unknown-unknown --release
 ```
 
-Enjoy!
+## Run it :
+```
+substreams run -e api-dev.streamingfast.io:443 substreams.yaml map_transfers --start-block 15627279 --stop-block +30
+```
+
+## Enjoy!
